@@ -1,0 +1,19 @@
+import time
+
+import board
+import digitalio
+
+
+# Create digital input with pull-up resistor on pin D5
+# for break beam sensor.
+break_beam = digitalio.DigitalInOut(board.D5)
+break_beam.direction = digitalio.Direction.INPUT
+break_beam.pull = digitalio.Pull.UP
+
+# Main loop runs forever and prints a message once a second
+# while the sensor is blocked/broken.
+while True:
+    if not break_beam.value:
+        # Break beam input is at a low logic level, i.e. broken!
+        print('Beam is broken!')
+    time.sleep(1.0)  # Delay for 1 second and repeat again.
