@@ -2,6 +2,11 @@ import displayio
 
 game_group = displayio.Group()
 
+tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
+x_wing = displayio.OnDiskBitmap("trench_game/X-wing for Star wars escape2.bmp")
+tie_bullet = displayio.OnDiskBitmap("trench_game/bullet for tie fighter-Recovered.bmp")
+trench = displayio.
+
 
 
 
