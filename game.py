@@ -5,11 +5,20 @@ game_group = displayio.Group()
 tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
 x_wing = displayio.OnDiskBitmap("trench_game/X-wing for Star wars escape2.bmp")
 tie_bullet = displayio.OnDiskBitmap("trench_game/bullet for tie fighter-Recovered.bmp")
-trench = displayio.
+trench = displayio.OnDiskBitMap("trech_game/backround for Star wars escape.bmp")
+trench_grid = displayio.OnDiskBitMap("trench_game/grid for backround of Star wars escape.bmp")
 
+TRENCH_W = 7
+TRENCH_H = 5
 
-
-
+trench_grid = displayio.TileGrid(
+    x_wing,
+    pixel_shader=x_wing.pixel_shader,
+    width=TRENCH_W,
+    height=TRENCH_H,
+    tile_width=12,
+    tile-height=12,
+)
 def game_setup():
     """this is called once to initialize your game features"""
     pass
