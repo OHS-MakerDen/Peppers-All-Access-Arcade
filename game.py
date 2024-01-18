@@ -1,4 +1,8 @@
 import displayio
+import random
+import terminalio
+from ada
+
 
 game_group = displayio.Group()
 
@@ -24,7 +28,7 @@ the_x_wing = Wing(3, 5)
 the_tie_fighter = Fighter(3, 2)
 game_score = 0
 game_tick = 0
-
+x_health = 3
 
 
 def game_setup():
@@ -38,8 +42,15 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
+    if p1_button and not p2_button:
+    elif not p1_button and p2_button:
+    elif not p1_button and not p2_button:
+    elif p1_button and p2_button:
     
-    return False
+    if len(x_health) > 0:
+        return False
+    else:
+        return True
 
 
 def game_over():
