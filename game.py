@@ -1,5 +1,6 @@
 import displayio
 import random
+from trench_game.Movement import *
 import terminalio
 from ada
 
