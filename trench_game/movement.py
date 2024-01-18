@@ -6,9 +6,14 @@ class Wing:
 
     def turn(self):
         self.direction += 1
+        if self.direction >= 3:
+            self.direction = 0
 
     def move(self):
-      if self.direction == 0
+        if self.direction == 0:
+        elif self.direction == 1:
+        elif self.direction == 2:
+        
 
 
 class Fighter:
