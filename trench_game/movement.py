@@ -1,3 +1,3 @@
-class x_wing
+class Wing
     def move(self):
       if 
