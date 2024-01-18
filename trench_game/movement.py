@@ -1,4 +1,6 @@
-class Wing
+class Wing:
     def move(self):
       if 
-class Fighter
+class Fighter:
+
+class Bullet:
