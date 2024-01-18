@@ -14,7 +14,7 @@ trench = displayio.OnDiskBitMap("trech_game/backround for Star wars escape.bmp")
 trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
 
 TRENCH_W = 7
-TRENCH_H = 6
+TRENCH_H = 5
 
 trench_grid = displayio.TileGrid(
     x_wing,
