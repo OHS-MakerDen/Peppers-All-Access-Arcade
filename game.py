@@ -27,9 +27,15 @@ trench_grid = displayio.TileGrid(
 
 the_x_wing = Wing(3, 5)
 the_tie_fighter = Fighter(3, 2)
+the_tie_bullet = Bullet(3, 2)
 game_score = 0
 game_tick = 0
 x_health = 3
+
+def bullet_x_wing():
+    
+    if tie_bullet == Wing:
+        x_health - 1
 
 
 def game_setup():
@@ -60,6 +66,12 @@ def game_over():
     global game_tick
 
     game_group.remove(trenches)
+    game_group.remove(trench)
+    game_group.append(death_star)
+    sleep(5)
+    game_group.remove(death_star)
+    game_group.append(death_star_explosion)
+    
     
     
 
