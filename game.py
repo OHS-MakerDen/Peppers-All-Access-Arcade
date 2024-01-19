@@ -3,6 +3,7 @@ import random
 from trench_game.Movement import *
 import terminalio
 from ada
+import time
 
 
 game_group = displayio.Group()
@@ -49,10 +50,10 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    if p1_button and not p2_button:
-    elif not p1_button and p2_button:
-    elif not p1_button and not p2_button:
-    elif p1_button and p2_button:
+    if p1_button = True, p2_button = True:
+    elif p1_button = True, p2_button = False:
+    elif p1_button = False, p2_button = True:
+    elif p1_button = False, p2_button = False:
     
     if len(x_health) > 0:
         return False
