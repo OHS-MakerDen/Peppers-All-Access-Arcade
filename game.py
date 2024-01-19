@@ -12,6 +12,8 @@ tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
 x_wing = displayio.OnDiskBitmap("trench_game/X-wing for Star wars escape2.bmp")
 tie_bullet = displayio.OnDiskBitmap("trench_game/bullet for tie fighter-Recovered.bmp")
 trench = displayio.OnDiskBitMap("trech_game/backround for Star wars escape.bmp")
+death_star = displayio.OnDiskBitMap("")
+death_star_explosion = displayio.OnDiskBitMap("")
 trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
 
 TRENCH_W = 7
@@ -33,11 +35,14 @@ game_score = 0
 game_tick = 0
 x_health = 3
 
-def bullet_x_wing():
+def bullet_tie_fighter():
     
-    if tie_bullet == Wing:
+    if tie_bullet == the_x_wing:
         x_health - 1
 
+def bullet_counter():
+    the_tie_bullet.move()
+    game_tick += 1
 
 def game_setup():
     """this is called once to initialize your game features"""
@@ -50,10 +55,14 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    if p1_button = True, p2_button = True:
-    elif p1_button = True, p2_button = False:
-    elif p1_button = False, p2_button = True:
-    elif p1_button = False, p2_button = False:
+    if p1_button: True:
+        the_x_wing.self_y += 1
+    elif p1_button: False:
+        the_x_wing.self_y -= 1
+    if p2_button: True:
+        the_tie_fighter.self_y += 1
+    elif p2_button: False:
+        the_tie_fighter.self_y -= 1
     
     if len(x_health) > 0:
         return False
