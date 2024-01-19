@@ -35,6 +35,9 @@ game_score = 0
 game_tick = 0
 x_health = 3
 
+def tie_fighter():
+    random.move(1,2)
+
 def bullet_tie_fighter():
     
     if tie_bullet == the_x_wing:
