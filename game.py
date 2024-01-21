@@ -59,13 +59,11 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
         returns True when the game is over, else return false"""
     global game_tick
     if p1_button: True:
-        the_x_wing.self_y += 1
+        the_x_wing.move()
+        print(
     elif p1_button: False:
-        the_x_wing.self_y -= 1
-    if p2_button: True:
-        the_tie_fighter.self_y += 1
-    elif p2_button: False:
-        the_tie_fighter.self_y -= 1
+        the_x_wing.move()
+   
     
     if len(x_health) > 0:
         return False
