@@ -16,7 +16,7 @@ death_star_explosion = displayio.OnDiskBitMap("")
 trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
 
 TRENCH_W = 7
-TRENCH_H = 5
+TRENCH_H = 3
 
 trench_grid = displayio.TileGrid(
     x_wing,
@@ -29,17 +29,21 @@ trench_grid = displayio.TileGrid(
 trench_grid.y = 8
 
 
-the_x_wing = Wing(5, 3)
-the_tie_fighter = Fighter(2, 3)
-the_tie_bullet = Bullet(2, 3)
+the_x_wing = Wing(5, 2)
+the_tie_fighter = Fighter(2, 2)
+the_tie_bullet = Bullet(2, 2)
 game_tick = 0
 x_health = 3
 
 def tie_fighter():
-    random.move(0,1)
+    tie_move = random.move(0,1)
+    if tie_move == 0:
+        self.y -= 1
+    if tie_move == 1:
+        self.y += 1
 
-def bullet_tie_fighter():
-    
+def bullet_hit_x_wing():
+    bullet_move == tie_move
     if tie_bullet == the_x_wing:
         x_health - 1
 
@@ -58,11 +62,13 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    if p1_button: True:
+    if p1_button:
         the_x_wing.move()
         print(
-    elif p1_button: False:
+    if not p1_button:
         the_x_wing.move()
+    tie_fighter()
+    
    
     
     if len(x_health) > 0 or game_tick < 25:
