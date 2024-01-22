@@ -2,7 +2,6 @@ import displayio
 import random
 from trench_game.Movement import *
 import terminalio
-from ada
 import time
 
 
@@ -27,16 +26,17 @@ trench_grid = displayio.TileGrid(
     tile_width=12,
     tile-height=12,
 )
+trench_grid.y = 8
 
-the_x_wing = Wing(3, 5)
-the_tie_fighter = Fighter(3, 2)
-the_tie_bullet = Bullet(3, 2)
-game_score = 0
+
+the_x_wing = Wing(5, 3)
+the_tie_fighter = Fighter(2, 3)
+the_tie_bullet = Bullet(2, 3)
 game_tick = 0
 x_health = 3
 
 def tie_fighter():
-    random.move(1,2)
+    random.move(0,1)
 
 def bullet_tie_fighter():
     
@@ -65,7 +65,7 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
         the_x_wing.move()
    
     
-    if len(x_health) > 0:
+    if len(x_health) > 0 or game_tick < 25:
         return False
     else:
         return True
@@ -73,15 +73,18 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
 
 def game_over():
     """this should display your game over screen with score also clean up the game_group"""
-    global game_score
     global game_tick
 
     game_group.remove(trenches)
     game_group.remove(trench)
     game_group.append(death_star)
-    sleep(5)
-    game_group.remove(death_star)
-    game_group.append(death_star_explosion)
+    if len(x_health) > 0:
+        sleep(5)
+        game_group.remove(death_star)
+        game_group.append(death_star_explosion)
+    elif game_tick < 25:
+        sleep(5)
+        game_group.remove(death_star)
     
     
     
