@@ -23,8 +23,8 @@ trench_grid = displayio.TileGrid(
     pixel_shader=x_wing.pixel_shader,
     width=TRENCH_W,
     height=TRENCH_H,
-    tile_width=12,
-    tile-height=12,
+    tile_width=10,
+    tile-height=10,
 )
 trench_grid.y = 8
 
