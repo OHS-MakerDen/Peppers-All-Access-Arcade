@@ -130,7 +130,7 @@ def run_sheep():
 
 
 
-def game_setup():
+def game_setup(p1_button:bool,p2_button:bool, coin_button:bool):
     """this is called once to initialize your game features"""
     global game_tick
     shake_sheep(6)
@@ -138,7 +138,7 @@ def game_setup():
     game_group.append(sheep_field)
     game_tick = 0
 
-def game_frame(p1_button:bool,p2_button:bool) -> bool:
+def game_frame(p1_button:bool,p2_button:bool, coin_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
@@ -157,7 +157,7 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
         return True
 
 
-def game_over():
+def game_over(p1_button:bool,p2_button:bool, coin_button:bool):
     """this should display your game over screen with score also clean up the game_group"""
     global game_score
     global game_tick
