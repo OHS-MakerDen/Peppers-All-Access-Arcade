@@ -47,11 +47,11 @@ def x_wings_movement():
 def bullet_hit_x_wing():
     bullet_move == tie_move
     if tie_bullet == the_x_wing:
-        x_health - 1
+        x_health -= 1
 
 def bullet_counter():
-    the_tie_bullet.move()
-    game_tick += 1
+def bullet_move():
+    
 
 def game_setup():
     """this is called once to initialize your game features"""
@@ -64,7 +64,11 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
+    x_wings_movements()
+    
     if p1_button:
+        bullet_move()
+        
     if not p1_button:
         
     
