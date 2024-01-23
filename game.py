@@ -8,7 +8,7 @@ game_group = displayio.Group()
 
 
 map = displayio.OnDiskBitmap("graphics/background.bmp")
-background = displayio.TileGrid(map, pixel_shader=farm.pixel_shader
+background = displayio.TileGrid(map, pixel_shader=farm.pixel_shader)
 
 
 
