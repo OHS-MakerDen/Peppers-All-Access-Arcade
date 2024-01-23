@@ -79,6 +79,12 @@ while True:
         if game_group not in screen:
             screen.append(game_group)
         game_setup(p1_clicked, p1_clicked, coin_clicked)
+        p1_clicked = False
+        p2_clicked = False
+        p1_led.value = False
+        p2_led.value = False
+        coin_clicked = True
+        coin_led.value = True
         state = "PLAY"
 
 
@@ -99,6 +105,12 @@ while True:
 
     elif state == "GAME OVER":
         game_over(p1_button,p2_button, coin_button)
+        p1_clicked = False
+        p2_clicked = False
+        p1_led.value = False
+        p2_led.value = False
+        coin_clicked = True
+        coin_led.value = True
         state = "INITIALIZE"
 
     elif state == "SETUP":
