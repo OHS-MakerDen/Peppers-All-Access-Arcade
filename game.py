@@ -35,6 +35,7 @@ the_tie_bullet = Bullet(2, 2)
 game_tick = 0
 x_health = 3
 
+def menu_start():
     
 
 def x_wings_movement():
@@ -64,14 +65,12 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    x_wings_movements()
     
     if p1_button:
         bullet_move()
-        
-    if not p1_button:
-        
-    
+        game_tick += 1
+    else:
+    x_wings_movement()
    
     
     if len(x_health) > 0 or game_tick < 25:
