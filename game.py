@@ -1,6 +1,15 @@
 import displayio
+import random 
+from time import sleep
+from adafruit_display_text import label
 
 game_group = displayio.Group()
+
+
+
+map = displayio.OnDiskBitmap("graphics/background.bmp")
+background = displayio.TileGrid(map, pixel_shader=farm.pixel_shader
+
 
 
 
