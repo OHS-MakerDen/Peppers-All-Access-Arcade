@@ -45,6 +45,7 @@ screen.append(setup_group)
 # inistialize the game play variables
 p1_clicked = False
 p2_clicked = False
+coin_clicked = False
 refresh_every = 0.5
 now = monotonic()
 
@@ -63,6 +64,9 @@ while True:
     if not p2.value:
         p2_clicked = True
         p2_led.value = True
+    if not coin.value:
+        coin_clicked = True
+        coin_lead.value = True
 
 
     if state == "INITIALIZE":
@@ -86,9 +90,17 @@ while True:
             p2_clicked = False
             p1_led.value = False
             p2_led.value = False
+            coin_clicked = True
+            coin_led.value = True
 
     elif state == "GAME OVER":
-        game_over()
+        game_over(p1_button,p2_button, coin_button)
+        p1_clicked = False
+        p2_clicked = False
+        p1_led.value = False
+        p2_led.value = False
+        coin_clicked = True
+        coin_led.value = True
         state = "INITIALIZE"
 
     elif state == "SETUP":
