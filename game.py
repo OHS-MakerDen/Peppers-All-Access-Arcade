@@ -53,14 +53,14 @@ def bullet_counter():
 def bullet_move():
     
 
-def game_setup():
+def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
     global game_tick
     game_group.append(trenches)
     game_group.append(trench)
     game_tick = 0
 
-def game_frame(p1_button:bool,p2_button:bool) -> bool:
+def game_frame(p1_button,p2_button, coin_button) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
@@ -80,7 +80,7 @@ def game_frame(p1_button:bool,p2_button:bool) -> bool:
         return True
 
 
-def game_over():
+def game_over(p1_button, p2_button, coin_button):
     """this should display your game over screen with score also clean up the game_group"""
     global game_tick
 
