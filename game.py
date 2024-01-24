@@ -1,21 +1,22 @@
 import displayio
+from war.WarriorsClass import *
 
 game_group = displayio.Group()
 
-players = displayio.OnDiskBitmap("""Add Bitmap when ready""")
-land = displayio.OnDiskBitmap("""Add Bitmap when ready""")
+players = displayio.OnDiskBitmap("war/SPRITES.bmp")
+land = displayio.OnDiskBitmap("war/PLAYSCREEN.bmp")
 bkgnd = displayio.TileGrid(land, pixel_shader=land.pixel_shader)
 
-LandW = """Define with graphics"""
-LandH = """Define with graphics"""
+LandW = 8
+LandH = 7
 
 battle_field = displayio.TileGrid(
     players,
     pixel_shader=players.pixel_shader,
     width=LandW,
     height=LandH,
-    tile_width="""Define with graphics""",
-    tile_height="""Define with graphics""",
+    tile_width=8,
+    tile_height=8,
 )
 
 battle_field.pixel_shader.make_transparent(29)
