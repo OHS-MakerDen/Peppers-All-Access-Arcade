@@ -95,11 +95,11 @@ def game_over(p1_button, p2_button, coin_button):
     game_group.remove(trenches)
     game_group.remove(trench)
     game_group.append(death_star)
-    if len(x_health) > 0:
+    if game_tick > 25:
         sleep(5)
         game_group.remove(death_star)
         game_group.append(death_star_explosion)
-    elif game_tick < 25:
+    elif len(x_health) = 0:
         sleep(5)
         game_group.remove(death_star)
     
