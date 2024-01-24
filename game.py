@@ -64,7 +64,7 @@ def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
     global game_tick
     game_group.append(menu_screen)
-    if coin_button:
+    if p2_button:
         game_group.remove(menu_screen)
     game_group.append(trenches)
     game_group.append(trench)
