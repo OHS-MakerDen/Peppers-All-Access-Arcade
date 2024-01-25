@@ -80,7 +80,7 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
         bullet_move()
         bullet_counter()
     else:
-    x_wings_movement()
+        x_wings_movement()
    
     
     if len(x_health) > 0 or game_tick < 25:
