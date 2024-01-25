@@ -35,8 +35,6 @@ the_tie_fighter = Fighter(2, 2)
 the_tie_bullet = Bullet(2, 2)
 game_tick = 0
 x_health = 3
-
-def menu_start():
     
 
 def x_wings_movement():
@@ -51,14 +49,17 @@ def bullet_hit_x_wing():
     if tie_bullet == the_x_wing:
         x_health -= 1
 def bullet_counter():
+    #counts the amount of bullets that are shot
+    game_tick += 1
+    
 def bullet_move():
-          self.x += 1
-            sleep(0.15)
-            self.x += 1
-            sleep(0.15)
-            self.x += 1
-            sleep(0.15)
-            self.x += 1
+    self.x += 1
+        sleep(0.15)
+        self.x += 1
+        sleep(0.15)
+        self.x += 1
+        sleep(0.15)
+        self.x += 1
 
 def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
@@ -77,7 +78,7 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     
     if p1_button:
         bullet_move()
-        
+        bullet_counter()
     else:
     x_wings_movement()
    
