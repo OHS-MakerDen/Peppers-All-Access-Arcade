@@ -38,7 +38,7 @@ x_health = 3
     
 
 def x_wings_movement():
-    x_move = random.move(0,1)
+    x_wings_movement = random.move(0,1)
     if x_move == 0:
         self.y -= 1
     if x_move == 1:
