@@ -38,10 +38,10 @@ x_health = 3
     
 
 def x_wings_movement():
-    x_wings_movement = random.move(0,1)
-    if x_move == 0:
+    Wing.move = random.move(0,1)
+    if Wing.move == 0:
         self.y -= 1
-    if x_move == 1:
+    if Wing.move == 1:
         self.y += 1
         
 def bullet_hit_x_wing():
@@ -54,12 +54,13 @@ def bullet_counter():
     
 def bullet_move():
     self.x += 1
-        sleep(0.15)
-        self.x += 1
-        sleep(0.15)
-        self.x += 1
-        sleep(0.15)
-        self.x += 1
+    sleep(0.15)
+    self.x += 1
+    sleep(0.15)
+    self.x += 1
+    sleep(0.15)
+    self.x += 1
+    self.x += 1
 
 def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
@@ -79,8 +80,9 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     if p1_button:
         bullet_move()
         bullet_counter()
+
     else:
-        x_wings_movement()
+    x_wings_movement()
    
     
     if len(x_health) > 0 or game_tick < 25:
@@ -106,4 +108,3 @@ def game_over(p1_button, p2_button, coin_button):
     
     
     
-
