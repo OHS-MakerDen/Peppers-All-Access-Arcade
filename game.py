@@ -1,6 +1,6 @@
 import displayio
 import random
-from trench_game.Movement import *
+from trench_game.Movement import*
 import terminalio
 import time
 
@@ -25,7 +25,7 @@ trench_grid = displayio.TileGrid(
     width=TRENCH_W,
     height=TRENCH_H,
     tile_width=10,
-    tile-height=10,
+    tile_height=10,
 )
 trench_grid.y = 8
 
@@ -48,9 +48,7 @@ def bullet_hit_x_wing():
     bullet_move == tie_move
     if tie_bullet == the_x_wing:
         x_health -= 1
-def bullet_counter():
-    #counts the amount of bullets that are shot
-    game_tick += 1
+
     
 def bullet_move():
     self.x += 1
@@ -59,7 +57,6 @@ def bullet_move():
     sleep(0.15)
     self.x += 1
     sleep(0.15)
-    self.x += 1
     self.x += 1
 
 def game_setup(p1_button,p2_button, coin_button):
@@ -79,13 +76,14 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     
     if p1_button:
         bullet_move()
-        bullet_counter()
+        game_tick += 1
+        game_tick += 1
 
     else:
-    x_wings_movement()
+        x_wings_movement()
    
     
-    if len(x_health) > 0 or game_tick < 25:
+    if x_health > 0 or game_tick < 25:
         return False
     else:
         return True
@@ -94,16 +92,16 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
 def game_over(p1_button, p2_button, coin_button):
     """this should display your game over screen with score also clean up the game_group"""
     global game_tick
-
+    win = x_health
+    
+    lose = game_tick
     game_group.remove(trenches)
     game_group.remove(trench)
     game_group.append(death_star)
-    if game_tick > 25:
-        sleep(5)
+    if lose == 25:
         game_group.remove(death_star)
         game_group.append(death_star_explosion)
-    elif len(x_health) = 0:
-        sleep(5)
+    if win == 0:
         game_group.remove(death_star)
     
     
