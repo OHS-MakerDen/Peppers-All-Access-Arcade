@@ -16,7 +16,7 @@ death_star_explosion = displayio.OnDiskBitMap("trench_game/blown star.bmp")
 menu_screen = displayio.OnDiskBitMap("trench_game/menu screen.bmp")
 trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
 
-TRENCH_W = 7
+TRENCH_W = 
 TRENCH_H = 3
 
 trench_grid = displayio.TileGrid(
@@ -52,11 +52,7 @@ def bullet_hit_x_wing():
     
 def bullet_move():
     self.x += 1
-    sleep(0.15)
     self.x += 1
-    sleep(0.15)
-    self.x += 1
-    sleep(0.15)
     self.x += 1
 
 def game_setup(p1_button,p2_button, coin_button):
@@ -73,14 +69,13 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    
+    x_wings_movement()
     if p1_button:
+        game_group.append(tie_bullet)
         bullet_move()
         game_tick += 1
-        game_tick += 1
-
-    else:
-        x_wings_movement()
+        bullet_hit_x_wing()
+        
    
     
     if x_health > 0 or game_tick < 25:
