@@ -27,6 +27,8 @@ trench_grid = displayio.TileGrid(
     tile_width=10,
     tile_height=10,
 )
+
+
 self.y == height
 
 
