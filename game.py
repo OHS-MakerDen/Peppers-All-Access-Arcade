@@ -16,7 +16,7 @@ death_star_explosion = displayio.OnDiskBitMap("trench_game/blown star.bmp")
 menu_screen = displayio.OnDiskBitMap("trench_game/menu screen.bmp")
 trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
 
-TRENCH_W = 
+TRENCH_W = 6
 TRENCH_H = 3
 
 trench_grid = displayio.TileGrid(
@@ -27,7 +27,7 @@ trench_grid = displayio.TileGrid(
     tile_width=10,
     tile_height=10,
 )
-trench_grid.y = 8
+self.y = height
 
 
 the_x_wing = Wing(5, 2)
