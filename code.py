@@ -94,5 +94,4 @@ while True:
     elif state == "SETUP":
         refresh_every = set_speed()
         state = "INITIALIZE"
-if p1_clicked = true 
     
