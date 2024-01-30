@@ -2,24 +2,25 @@ import displayio
 import random
 from trench_game.Movement import*
 import terminalio
-import time
+from adafruit_display_text import label
+from time import sleep
 
 
 game_group = displayio.Group()
 
 tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
-x_wing = displayio.OnDiskBitmap("trench_game/X-wing for Star wars escape2.bmp")
-tie_bullet = displayio.OnDiskBitmap("trench_game/bullet for tie fighter-Recovered.bmp")
-trench = displayio.OnDiskBitMap("trench_game/backround for Star wars escape.bmp")
+x_wing = displayio.OnDiskBitmap("trench_game/x_wing.bmp")
+tie_bullet = displayio.OnDiskBitmap("trench_game/bullet.bmp")
+trench = displayio.OnDiskBitMap("trench_game/backround.bmp")
 death_star = displayio.OnDiskBitMap("trench_game/star.bmp")
-death_star_explosion = displayio.OnDiskBitMap("trench_game/blown star.bmp")
-menu_screen = displayio.OnDiskBitMap("trench_game/menu screen.bmp")
-trenches = displayio.TileGrid(trench, pixel_shader = trench.pixel_shader)
+death_star_explosion = displayio.OnDiskBitMap("trench_game/blownstar.bmp")
+menu_screen = displayio.OnDiskBitMap("trench_game/menuscreen.bmp")
+tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 
 TRENCH_W = 6
 TRENCH_H = 3
 
-trench_grid = displayio.TileGrid(
+x_field = displayio.TileGrid(
     x_wing,
     pixel_shader=x_wing.pixel_shader,
     width=TRENCH_W,
@@ -28,8 +29,31 @@ trench_grid = displayio.TileGrid(
     tile_height=10,
 )
 
+tie_field = displayio.TileGrid(
+    tie_fighter,
+    pixel_shader=tie_fighter.pixel_shader,
+    width=FIELD_W,
+    height=FIELD_H,
+    tile_width=10,
+    tile_height=10,
+)
 
-self.y == height
+bullet_field = displayio.TileGrid(
+    tie_bullet,
+    pixel_shader=tie_bullet.pixel_shader,
+    width=FIELD_W,
+    height=FIELD_H,
+    tile_width=10,
+    tile_height=10,
+)
+
+x_field.pixel_shader.make_transparent(29)
+tie_field.pixel_shader.make_transparent(29)
+bullet_field.pixel_shader.make_transparent(29)
+x_field.y = 6
+tie_field.y = 6
+bullet_field.y = 6
+
 
 
 the_x_wing = Wing(5, 2)
@@ -61,6 +85,7 @@ def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
     global game_tick
     game_group.append(menu_screen)
+    time.sleep(15)
     if p2_button:
         game_group.remove(menu_screen)
     game_group.append(trenches)
