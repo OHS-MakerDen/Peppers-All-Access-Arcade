@@ -93,7 +93,7 @@ while True:
         # call the new game_frame
         if now + refresh_every < monotonic():
             now = monotonic()
-            if game_frame(p1_clicked, p1_clicked, coin_clicked):
+            if game_frame(p1_clicked, p2_clicked, coin_clicked):
                 state = "GAME OVER"
             # release the button latch
             p1_clicked = False
