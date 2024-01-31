@@ -1,6 +1,6 @@
 import displayio
 import random
-from trench_game.Movement import*
+from trench_game1.Movement import*
 import terminalio
 from adafruit_display_text import label
 from time import sleep
@@ -10,13 +10,13 @@ game_group = displayio.Group()
 
 #display bitmaps and tilegrid
 
-tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
-x_wing = displayio.OnDiskBitmap("trench_game/x_wing.bmp")
-tie_bullet = displayio.OnDiskBitmap("trench_game/bullet.bmp")
-trench = displayio.OnDiskBitmap("trench_game/backround.bmp")
-death_star = displayio.OnDiskBitmap("trench_game/star.bmp")
-star_explosion = displayio.OnDiskBitmap("trench_game/blownstar.bmp")
-menu_screen = displayio.OnDiskBitmap("trench_game/menuscreen.bmp")
+tie_fighter = displayio.OnDiskBitmap("trench_game1/tie_fighter.bmp")
+x_wing = displayio.OnDiskBitmap("trench_game1/x_wing.bmp")
+tie_bullet = displayio.OnDiskBitmap("trench_game1/bullet.bmp")
+trench = displayio.OnDiskBitmap("trench_game1/backround.bmp")
+death_star = displayio.OnDiskBitmap("trench_game1/star.bmp")
+star_explosion = displayio.OnDiskBitmap("trench_game1/blownstar.bmp")
+menu_screen = displayio.OnDiskBitmap("trench_game1/menuscreen.bmp")
 tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 
 TRENCH_W = 6
