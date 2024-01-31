@@ -9,10 +9,12 @@ axe = displayio.OnDiskBitmap("axe/axe.bmp")
 startingbg = displayio.OnDiskBitmap("axe/STARTINGBG.bmp")
 meter = displayio.OnDiskBitmap("axe/Meter.bmp")
 first_map = displayio.OnDiskBitmap("axe/map_1.bmp")
+game_over= displayio.OnDiskBitmap("axe/game_over.bmp")
 
 map_1 = displayio.TileGrid(first_map, pixel_shader=first_map.pixel_shader)
 mtr = displayio.TileGrid(meter, pixel_shader=meter.pixel_shader)
 bkgnd = displayio.TileGrid(startingbg, pixel_shader=startingbg.pixel_shader)
+gameover = displayio.TileGrid(game_over, pixel_shader=game_over.pixel_shader)
 
 FIELD_W = 64
 FIELD_H = 64
@@ -32,6 +34,7 @@ the_axes = []
 game_score = 0
 game_tick = 0
 running = False
+game_end = False
 
 
 def game_setup(p1_button: bool, p2_button: bool, coin_button: bool):
@@ -44,8 +47,10 @@ def game_frame(p1_button: bool, p2_button: bool, coin_button: bool) -> bool:
         game_group.append(map_1)
         game_group.append(mtr)
         running = True
-    else:
-        pass
+    elif p1_button and running:
+        game_end = True
+    elif p1_button and game_end == True:
+        game_group.append(gameover)
     return False
 
 def game_over(p1_button: bool, p2_button: bool, coin_button: bool):
