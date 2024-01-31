@@ -8,14 +8,14 @@ from time import sleep
 
 game_group = displayio.Group()
 
-#Our bitmaps and tile grid
+#display bitmaps and tilegrid
 
 tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
 x_wing = displayio.OnDiskBitmap("trench_game/x_wing.bmp")
 tie_bullet = displayio.OnDiskBitmap("trench_game/bullet.bmp")
 trench = displayio.OnDiskBitmap("trench_game/backround.bmp")
 death_star = displayio.OnDiskBitmap("trench_game/star.bmp")
-death_star_explosion = displayio.OnDiskBitmap("trench_game/blownstar.bmp")
+star_explosion = displayio.OnDiskBitmap("trench_game/blownstar.bmp")
 menu_screen = displayio.OnDiskBitmap("trench_game/menuscreen.bmp")
 tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 
@@ -65,11 +65,13 @@ game_tick = 0
 x_health = 3
     
 
-def x_movement():
-    #moves the x_wing up or down randomly
+def x_movement(i):
+    #choses random # from 1-2
     Wing.move = random(0,1)
+    #moves down if # is 0
     if Wing.move == 0:
         self.y -= 1
+    #moves up if # is 1
     if Wing.move == 1:
         self.y += 1
         
@@ -125,7 +127,7 @@ def game_over(p1_button, p2_button, coin_button):
     game_group.append(death_star)
     if lose == 25:
         game_group.remove(death_star)
-        game_group.append(death_star_explosion)
+        game_group.append(star_explosion)
     if win == 0:
         game_group.remove(death_star)
     
