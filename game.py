@@ -8,6 +8,8 @@ from time import sleep
 
 game_group = displayio.Group()
 
+#Our bitmaps and tile grid
+
 tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
 x_wing = displayio.OnDiskBitmap("trench_game/x_wing.bmp")
 tie_bullet = displayio.OnDiskBitmap("trench_game/bullet.bmp")
@@ -55,7 +57,7 @@ tie_field.y = 6
 bullet_field.y = 6
 
 
-
+#sets coordinates, game score, and the X-wing health
 the_x_wing = Wing(5, 2)
 the_tie_fighter = Fighter(2, 2)
 the_tie_bullet = Bullet(2, 2)
@@ -63,20 +65,22 @@ game_tick = 0
 x_health = 3
     
 
-def x_wings_movement():
+def x_movement():
+    #moves the x_wing up or down randomly
     Wing.move = random(0,1)
     if Wing.move == 0:
         self.y -= 1
     if Wing.move == 1:
         self.y += 1
         
-def bullet_hit_x_wing():
-    bullet_move == tie_move
+def bullet_hit_wing():
+    #checks if the bullet hits the x-wing and if so subtracts a point from the health
     if tie_bullet == the_x_wing:
         x_health -= 1
 
     
 def bullet_move():
+    #how the bullet will move after you shoot it
     self.x += 1
     self.x += 1
     self.x += 1
@@ -96,19 +100,18 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
     global game_tick
-    x_wings_movement()
+    x_movement()
     if p1_button:
         game_group.append(tie_bullet)
         bullet_move()
         game_tick += 1
-        bullet_hit_x_wing()
+        bullet_hit_wing()
         
    
-    
-    if x_health > 0 or game_tick < 25:
-        return False
+    #check if either the health is at 0 or the game tick is over 25, if neither: false, if one or both: true
     if x_health == 0 or game_tick == 25:
         return True
+    return False
 
 
 def game_over(p1_button, p2_button, coin_button):
