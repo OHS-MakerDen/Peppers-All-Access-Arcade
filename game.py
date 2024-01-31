@@ -107,7 +107,7 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
     
     if x_health > 0 or game_tick < 25:
         return False
-    else:
+    if x_health == 0 or game_tick == 25:
         return True
 
 
