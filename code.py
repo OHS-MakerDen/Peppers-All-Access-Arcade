@@ -74,7 +74,13 @@ while True:
         now = monotonic()
         if game_group not in screen:
             screen.append(game_group)
-        game_setup()
+        game_setup(p1_clicked, p1_clicked, coin_clicked)
+        p1_clicked = False
+        p2_clicked = False
+        p1_led.value = False
+        p2_led.value = False
+        coin_clicked = True
+        coin_led.value = True
         state = "PLAY"
 
 
