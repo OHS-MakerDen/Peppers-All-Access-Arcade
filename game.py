@@ -7,7 +7,7 @@ game_group = displayio.Group()
 
 
 
-map = displayio.OnDiskBitmap("graphics/background.bmp")
+background = displayio.OnDiskBitmap("graphics/background.bmp")
 background = displayio.TileGrid(map, pixel_shader=farm.pixel_shader)
 
 
@@ -19,7 +19,7 @@ def game_setup(p1_button,p2_button, coin_button):
     pass
 
 def game_frame(p1_button,p2_button, coin_button) -> bool:
-    """this is called every frame, you need to update all your grame objects
+    """this is called every frame, you need to update all your game objects
         returns True when the game is over, else return false"""
     return False
 
