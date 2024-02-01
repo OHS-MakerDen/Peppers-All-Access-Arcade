@@ -81,7 +81,7 @@ def bullet_hit_wing():
         x_health -= 1
 
     
-def bullet_move():
+def bullet_move(self):
     #how the bullet will move after you shoot it
     self.x += 1
     self.x += 1
