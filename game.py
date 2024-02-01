@@ -2,18 +2,31 @@ import displayio
 
 game_group = displayio.Group()
 
-GROUND_HEIGHT = 16
-SLIME_JUMP_HEIGHT = 100
+GROUND_HEIGHT = -16
+SLIME_JUMP_HEIGHT = 5
 OBSTACLE_FREQUENCY = 0.03
-OBSTACLE_SPEED = 12
-FRAME_DELAY = 0.01
+OBSTACLE_SPEED = 4
+FRAME_DELAY = 0.05
 
-
+backround = turtle.Screen()
+backround = displayio.OnDiskBitmap(
 
 def jump():
-    slime 
+    global slime_jump
+    if not slime_jump:
+        slime_jump = True
+
+def create_obstacle():
+    obstacle = turtle.Turtle()
+    obstacle.shape("square")
+    obstacle.color("red")
+    obstacle.shapesize(stretch_wid=1, stretch_len=2)
+    obstacle.penup()
+    obstacle.goto(400, GROUND_HEIGHT)
+    return obstacle
 
 
+    
 def game_setup():
     """this is called once to initialize your game features"""
     pass
