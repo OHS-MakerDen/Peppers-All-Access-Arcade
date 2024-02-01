@@ -18,10 +18,6 @@ def jump():
 
 def create_obstacle():
     obstacle = turtle.Turtle()
-    obstacle.shape("square")
-    obstacle.color("red")
-    obstacle.shapesize(stretch_wid=1, stretch_len=2)
-    obstacle.penup()
     obstacle.goto(400, GROUND_HEIGHT)
     return obstacle
 
@@ -34,6 +30,8 @@ def game_setup():
 def game_frame(p1_button:bool,p2_button:bool) -> bool:
     """this is called every frame, you need to update all your grame objects
         returns True when the game is over, else return false"""
+    if jump():
+        jump
     return False
 
 
