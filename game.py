@@ -2,7 +2,16 @@ import displayio
 
 game_group = displayio.Group()
 
+GROUND_HEIGHT = 16
+SLIME_JUMP_HEIGHT = 100
+OBSTACLE_FREQUENCY = 0.03
+OBSTACLE_SPEED = 12
+FRAME_DELAY = 0.01
 
+
+
+def jump():
+    slime 
 
 
 def game_setup():
