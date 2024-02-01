@@ -2,27 +2,94 @@ import displayio
 
 game_group = displayio.Group()
 
+
+
+# Constants
 GROUND_HEIGHT = -16
 SLIME_JUMP_HEIGHT = 5
 OBSTACLE_FREQUENCY = 0.03
 OBSTACLE_SPEED = 4
 FRAME_DELAY = 0.05
 
-backround = turtle.Screen()
-backround = displayio.OnDiskBitmap(
+# Set up the screen
+screen = turtle.Screen()
+screen.title("Slime Jump")
+screen.bgcolor("white")
+screen.setup(width=64, height=64)
 
+# Slime
+slime = turtle.Turtle()
+slime.shape("square")
+slime.color("green")
+slime.shapesize(stretch_wid=.5, stretch_len=.5)
+slime.penup()
+slime.goto(-30, GROUND_HEIGHT)
+
+# Obstacle
+def create_obstacle():
+    obstacle = turtle.Turtle()
+    obstacle.goto(30, GROUND_HEIGHT)
+    return obstacle
+
+obstacles = []
+
+# Functions
 def jump():
     global slime_jump
     if not slime_jump:
         slime_jump = True
 
-def create_obstacle():
-    obstacle = turtle.Turtle()
-    obstacle.goto(400, GROUND_HEIGHT)
-    return obstacle
+# Keyboard bindings
+turtle.listen()
+turtle.onkey(jump, "space")
 
+# Game loop
+slime_jump = False
+running = True
+while running:
+    # Move slime
+    if slime_jump:
+        slime.sety(slime.ycor() + 4)
+        if slime.ycor() >= GROUND_HEIGHT + SLIME_JUMP_HEIGHT:
+            slime_jump = False
+    else:
+        if slime.ycor() > GROUND_HEIGHT:
+            slime.sety(slime.ycor() - 4)
+            if slime.ycor() <= GROUND_HEIGHT:
+                slime.sety(GROUND_HEIGHT)
 
-    
+    # Create new obstacles
+    if random.random() < OBSTACLE_FREQUENCY:
+        obstacle = create_obstacle()
+        obstacles.append(obstacle)
+
+    # Move obstacles
+    for obstacle in obstacles:
+        obstacle.setx(obstacle.xcor() - OBSTACLE_SPEED)
+
+    # Remove off-screen obstacles
+    obstacles = [obstacle for obstacle in obstacles if obstacle.xcor() > -32]
+
+    # Check for collisions
+    for obstacle in obstacles:
+        if (
+            slime.xcor() - 2 < obstacle.xcor() < slime.xcor() + 2
+            and slime.ycor() - 2 < obstacle.ycor() < slime.ycor() + 2
+        ):
+            print("Game Over!")
+            running = False
+
+    # Draw game elements
+    draw_ground()
+
+    # Pause for a short time
+    time.sleep(FRAME_DELAY)
+
+    # Update the screen
+    screen.update()
+
+# Close the window when the game ends
+turtle.bye()# Write your code here :-)
 def game_setup():
     """this is called once to initialize your game features"""
     pass
