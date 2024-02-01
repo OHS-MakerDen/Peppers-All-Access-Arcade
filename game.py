@@ -2,8 +2,6 @@ import displayio
 
 game_group = displayio.Group()
 
-
-
 # Constants
 GROUND_HEIGHT = -16
 SLIME_JUMP_HEIGHT = 5
@@ -17,12 +15,11 @@ screen.title("Slime Jump")
 screen.bgcolor("white")
 screen.setup(width=64, height=64)
 
-# Slime
-slime = turtle.Turtle()
-slime.shape("square")
-slime.color("green")
-slime.shapesize(stretch_wid=.5, stretch_len=.5)
-slime.penup()
+#backround
+backround = displayio.TileGrid("caveBack.bmp")
+
+#spawn slime
+slime = displayio.OnDiskBitmap("slime/slime_jump.bmp")
 slime.goto(-30, GROUND_HEIGHT)
 
 # Obstacle
@@ -35,13 +32,10 @@ obstacles = []
 
 # Functions
 def jump():
-    global slime_jump
-    if not slime_jump:
-        slime_jump = True
-
-# Keyboard bindings
-turtle.listen()
-turtle.onkey(jump, "space")
+    if p1_clicked = True:
+        global slime_jump
+        if not slime_jump:
+            slime_jump = True
 
 # Game loop
 slime_jump = False
@@ -78,16 +72,7 @@ while running:
         ):
             print("Game Over!")
             running = False
-
-    # Draw game elements
-    draw_ground()
-
-    # Pause for a short time
-    time.sleep(FRAME_DELAY)
-
-    # Update the screen
-    screen.update()
-
+            
 # Close the window when the game ends
 turtle.bye()# Write your code here :-)
 def game_setup():
