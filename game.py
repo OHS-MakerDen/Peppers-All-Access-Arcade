@@ -1,6 +1,6 @@
 import displayio
 import random
-from trench_game1.Movement import*
+from trench_game.Movement import*
 import terminalio
 from adafruit_display_text import label
 from time import sleep
@@ -8,15 +8,15 @@ from time import sleep
 
 game_group = displayio.Group()
 
-#display bitmaps and tilegrid
+# display bitmaps and tilegrid
 
-tie_fighter = displayio.OnDiskBitmap("trench_game1/tie_fighter.bmp")
-x_wing = displayio.OnDiskBitmap("trench_game1/x_wing.bmp")
-tie_bullet = displayio.OnDiskBitmap("trench_game1/bullet.bmp")
-trench = displayio.OnDiskBitmap("trench_game1/backround.bmp")
-death_star = displayio.OnDiskBitmap("trench_game1/star.bmp")
-star_explosion = displayio.OnDiskBitmap("trench_game1/blownstar.bmp")
-menu_screen = displayio.OnDiskBitmap("trench_game1/menuscreen.bmp")
+tie_fighter = displayio.OnDiskBitmap("trench_game/tie_fighter.bmp")
+x_wing = displayio.OnDiskBitmap("trench_game/x_wing.bmp")
+tie_bullet = displayio.OnDiskBitmap("trench_game/bullet.bmp")
+trench = displayio.OnDiskBitmap("trench_game/background.bmp")
+death_star = displayio.OnDiskBitmap("trench_game/star.bmp")
+star_explosion = displayio.OnDiskBitmap("trench_game/blownstar.bmp")
+menu_screen = displayio.OnDiskBitmap("trench_game/menuscreen.bmp")
 tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 
 TRENCH_W = 6
@@ -34,8 +34,8 @@ x_field = displayio.TileGrid(
 tie_field = displayio.TileGrid(
     tie_fighter,
     pixel_shader=tie_fighter.pixel_shader,
-    width=FIELD_W,
-    height=FIELD_H,
+    width=TRENCH_W,
+    height=TRENCH_H,
     tile_width=10,
     tile_height=10,
 )
@@ -43,8 +43,8 @@ tie_field = displayio.TileGrid(
 bullet_field = displayio.TileGrid(
     tie_bullet,
     pixel_shader=tie_bullet.pixel_shader,
-    width=FIELD_W,
-    height=FIELD_H,
+    width=TRENCH_W,
+    height=TRENCH_H,
     tile_width=10,
     tile_height=10,
 )
@@ -57,7 +57,7 @@ tie_field.y = 6
 bullet_field.y = 6
 
 
-#sets coordinates, game score, and the X-wing health
+# sets coordinates, game score, and the X-wing health
 the_x_wing = Wing(5, 2)
 the_tie_fighter = Fighter(2, 2)
 the_tie_bullet = Bullet(2, 2)
