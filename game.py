@@ -45,8 +45,8 @@ bullet_field = displayio.TileGrid(
     pixel_shader=tie_bullet.pixel_shader,
     width=TRENCH_W,
     height=TRENCH_H,
-    tile_width=10,
-    tile_height=10,
+    tile_width=2,
+    tile_height=2,
 )
 
 x_field.pixel_shader.make_transparent(29)
@@ -63,26 +63,26 @@ the_tie_fighter = Fighter(2, 2)
 the_tie_bullet = Bullet(2, 2)
 game_tick = 0
 x_health = 3
-    
+
 
 def x_movement(i):
-    #choses random # from 1-2
+    # choses random # from 1-2
     Wing.move = random(0,1)
-    #moves down if # is 0
+    # moves down if # is 0
     if Wing.move == 0:
         self.y -= 1
-    #moves up if # is 1
+    # moves up if # is 1
     if Wing.move == 1:
         self.y += 1
-        
+
 def bullet_hit_wing():
-    #checks if the bullet hits the x-wing and if so subtracts a point from the health
+    # checks if the bullet hits the x-wing and if so subtracts a point from the health
     if tie_bullet == the_x_wing:
         x_health -= 1
 
-    
+
 def bullet_move(self):
-    #how the bullet will move after you shoot it
+    # how the bullet will move after you shoot it
     self.x += 1
     self.x += 1
     self.x += 1
@@ -108,8 +108,8 @@ def game_frame(p1_button,p2_button, coin_button) -> bool:
         bullet_move()
         game_tick += 1
         bullet_hit_wing()
-        
-   
+
+
     #check if either the health is at 0 or the game tick is over 25, if neither: false, if one or both: true
     if x_health == 0 or game_tick == 25:
         return True
@@ -120,9 +120,9 @@ def game_over(p1_button, p2_button, coin_button):
     """this should display your game over screen with score also clean up the game_group"""
     global game_tick
     win = x_health
-    
+
     lose = game_tick
-    game_group.remove(trenches)
+    game_group.remove(tile_grid)
     game_group.remove(trench)
     game_group.append(death_star)
     if lose == 25:
@@ -130,6 +130,6 @@ def game_over(p1_button, p2_button, coin_button):
         game_group.append(star_explosion)
     if win == 0:
         game_group.remove(death_star)
-    
-    
-    
+
+
+
