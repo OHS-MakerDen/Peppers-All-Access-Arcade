@@ -70,18 +70,18 @@ hitboxes = []
 animate = 0
 
 
-def game_setup(p1_button, p2_button, coin_button):
+def game_setup(p1_clicked, p2_clicked, coin_clicked):
     """this is called once to initialize your game features"""
     game_group.append(bkgnd)
     game_group.append(obstacle)
     game_group.append(jamal)
-   
+
     global obstacle_wait
     global hitboxes
     global jumping
     global hitbox_wait
     global animate
-   
+
     jumping = False
     obstacle_wait = 0
     hitbox_wait = 0
@@ -89,11 +89,11 @@ def game_setup(p1_button, p2_button, coin_button):
     bkgnd.x = 0
     obstacle.x = 64
     animate = 0
-    
+
     # free spaces at start
     for i in range(8):
         hitboxes.append(0)
-    
+
     # creates obstacles and hitboxes
     for col in range(511):
         if random.randint(0, 2) == obstacle_wait == 0:
@@ -105,29 +105,29 @@ def game_setup(p1_button, p2_button, coin_button):
             obstacle[col, 0] = 5
             if obstacle_wait > 0:
                 obstacle_wait -= 1
-    
+
     pass
 
-def game_frame(p1_button, p2_button, coin_button) -> bool:
+def game_frame(p1_clicked, p2_clicked, coin_clicked) -> bool:
     """this is called every frame, you need to update all your grame objects
     returns True when the game is over, else return false"""
     global jumping
     global hitbox_wait
     global hitboxes
     global animate
-    
+
     # decides if jumping
-    if p1_button and jamal.y == 29:
+    if p1_clicked and jamal.y == 29:
         jumping = True
     elif jamal.y == 13:
         jumping = False
-    
+
     # movement when jumping
     if jumping:
         jamal.y -= 4
     elif jamal.y != 29:
         jamal.y += 4
-    
+
     # every other frame hitboxes advance
     if hitbox_wait > 0:
         hitbox_wait -= 1
@@ -138,27 +138,27 @@ def game_frame(p1_button, p2_button, coin_button) -> bool:
     # moves background and obstacles
     bkgnd.x -= 4
     obstacle.x -= 4
-    
+
     # animation
     jamal[0, 0] = animate
     if animate == 6:
         animate = 0
     else:
         animate += 1
-    
+
     # checks if jamal is touching hitbox
     if jamal.y == 29 and (hitboxes[0] == 1 or hitboxes[1] == 1 or hitboxes[2] == 1):
         return True
     else:
         return False
-    
-def game_over(p1_button, p2_button, coin_button):
+
+def game_over(p1_clicked, p2_clicked, coin_clicked):
     """this should display your game over screen with score also clean up the game_group"""
-    
+
     # deletes all in game_group
     for i in range(len(game_group)):
         game_group.pop()
-    
+
     # shows game over screen for 5 seconds then hides and restarts
     game_group.append(gmover)
     time.sleep(5)
