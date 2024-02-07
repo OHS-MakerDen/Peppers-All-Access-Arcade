@@ -3,6 +3,7 @@ import random
 from trench_game.Movement import*
 import terminalio
 from adafruit_display_text import label
+import time
 from time import sleep
 
 
@@ -21,6 +22,15 @@ tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 
 TRENCH_W = 6
 TRENCH_H = 3
+
+menu_screen = displayio.TileGrid(
+    menu_screen,
+    pixel_shader=menu_screen.pixel_shader,
+    width=TRENCH_W,
+    height=TRENCH_H,
+    tile_width=64,
+    tile_height=64,
+)
 
 x_field = displayio.TileGrid(
     x_wing,
@@ -92,9 +102,9 @@ def game_setup(p1_button,p2_button, coin_button):
     global game_tick
     game_group.append(menu_screen)
     time.sleep(15)
-    if p2_button:
+    if p1_button:
         game_group.remove(menu_screen)
-    game_group.append(trenches)
+    game_group.append(tile_grid)
     game_group.append(trench)
     game_tick = 0
 
