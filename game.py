@@ -12,9 +12,6 @@ background = displayio.OnDiskBitmap("graphics/background.bmp")
 bkgnd = displayio.TileGrid(map, pixel_shader=background.pixel_shader)
 
 
-SPACE_FIELD.pixel_shader.make_transparent(29)
-SPACE_FIELD.y = 8
-
 def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
     pass
