@@ -39,5 +39,5 @@ def game_frame(p1_button: bool, p2_button: bool, coin_button: bool):
 
 
 def game_over(p1_button,p2_button, coin_button):
-    """this should display your game over screen with score also clean up the game_group"""
-    pass
+    gamegroup.remove(bkgnd)
+    print(score)
