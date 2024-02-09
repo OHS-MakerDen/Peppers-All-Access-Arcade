@@ -23,6 +23,15 @@ tile_grid = displayio.TileGrid(trench, pixel_shader=trench.pixel_shader)
 TRENCH_W = 6
 TRENCH_H = 3
 
+trench = displayio.TileGrid(
+    trench,
+    pixel_shader=trench.pixel_shader,
+    width=TRENCH_W,
+    height=TRENCH_H,
+    tile_width=64,
+    tile_height=64,
+)
+
 menu_screen = displayio.TileGrid(
     menu_screen,
     pixel_shader=menu_screen.pixel_shader,
@@ -75,7 +84,7 @@ game_tick = 0
 x_health = 3
 
 
-def x_movement(i):
+def x_movement():
     # choses random # from 1-2
     Wing.move = random(0,1)
     # moves down if # is 0
@@ -101,7 +110,7 @@ def game_setup(p1_button,p2_button, coin_button):
     """this is called once to initialize your game features"""
     global game_tick
     game_group.append(menu_screen)
-    time.sleep(15)
+    time.sleep(5)
     if p1_button:
         game_group.remove(menu_screen)
     game_group.append(tile_grid)
@@ -140,6 +149,3 @@ def game_over(p1_button, p2_button, coin_button):
         game_group.append(star_explosion)
     if win == 0:
         game_group.remove(death_star)
-
-
-
